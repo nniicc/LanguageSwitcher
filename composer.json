@@ -1,5 +1,5 @@
 {
-  "name": "ied3vil/language-switcher",
+  "name": "nniicc/language-switcher",
   "type": "Package",
   "description": "Laravel Language Switcher",
   "keywords": [
@@ -8,16 +8,8 @@
     "php",
     "switcher"
   ],
-  "homepage": "https://github.com/ied3vil/language-switcher",
+  "homepage": "https://github.com/nniicc/LanguageSwitcher",
   "license": "Apache 2.0",
-  "authors": [
-    {
-      "name": "Razvan-Cristian Marian",
-      "email": "ied3vil@gmail.com",
-      "homepage": "http://www.ied3vil.com",
-      "role": "Developer"
-    }
-  ],
   "require": {
     "php": ">=5.3.0"
   },
