@@ -22,7 +22,9 @@ class LanguageSwitcherController extends BaseController
     public function setLanguage($language)
     {
         if (Switcher::getRedirect() == 'route') {
-            return redirect(Switcher::getRedirectRoute())->withCookie(Switcher::setLanguage($language));
+            $backUrl = redirect()->back()->getTargetUrl();
+            $backUrl = str_replace('/'.Switcher::getCurrentLanguage().'/', '/'.$language.'/', $backUrl);
+            return redirect($backUrl)->withCookie(Switcher::setLanguage($language));
         }
         return back()->withCookie(Switcher::setLanguage($language));
     }
