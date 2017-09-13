@@ -1,19 +1,18 @@
 <?php
 
-namespace ied3vil\LanguageSwitcher\Providers;
+namespace nniicc\LanguageSwitcher\Providers;
 
-use ied3vil\LanguageSwitcher\LanguageSwitcher;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\App;
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\ServiceProvider;
+use nniicc\LanguageSwitcher\LanguageSwitcher;
 
 class LanguageSwitcherProvider extends ServiceProvider
 {
     public function register()
     {
         //register facade to be used
-        AliasLoader::getInstance()->alias('LanguageSwitcher', \ied3vil\LanguageSwitcher\Facades\LanguageSwitcher::class);
+        AliasLoader::getInstance()->alias('LanguageSwitcher', \nniicc\LanguageSwitcher\Facades\LanguageSwitcher::class);
         App::bind('LanguageSwitcher', function () {
             return new LanguageSwitcher();
         });

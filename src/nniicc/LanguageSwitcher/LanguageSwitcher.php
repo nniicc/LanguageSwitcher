@@ -1,5 +1,5 @@
 <?php
-namespace ied3vil\LanguageSwitcher;
+namespace nniicc\LanguageSwitcher;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;

@@ -1,12 +1,12 @@
 <?php
 
-namespace ied3vil\LanguageSwitcher;
+namespace nniicc\LanguageSwitcher;
 
-use ied3vil\LanguageSwitcher\Facades\LanguageSwitcher as Switcher;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use nniicc\LanguageSwitcher\Facades\LanguageSwitcher as Switcher;
 
 class LanguageSwitcherController extends BaseController
 {

@@ -1,9 +1,9 @@
 <?php
 
+namespace nniicc\LanguageSwitcher\Middleware;
 
-namespace ied3vil\LanguageSwitcher\Middleware;
 use Closure;
-use ied3vil\LanguageSwitcher\Facades\LanguageSwitcher;
+use nniicc\LanguageSwitcher\Facades\LanguageSwitcher;
 
 class LanguageSwitcherMiddleware
 {

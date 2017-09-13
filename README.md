@@ -11,10 +11,10 @@ whereas the default provided config will allow you to use the package right afte
 I know it may seem very simple and perhaps over-complicated, but you don't have to waste time and thought process on the simple things.
 
 ##Installation
-To install the package, just run composer require ied3vil/language-switcher and follow the instructions.
+To install the package, just run composer require nniicc/language-switcher and follow the instructions.
 If you want to add it to your composer.json manually, just open composer.json and search for the "autoload" field and add
 ```
-composer require ied3vil/language-switcher
+composer require nniicc/language-switcher
 ```
 
 After the package is installed, you should run the vendor:publish command in the console so the package publishes its config file to your application.
@@ -29,7 +29,7 @@ To include the service provider, just go to your `config/app.php` file, find the
         .
         .
         .
-        ied3vil\LanguageSwitcher\Providers\LanguageSwitcherProvider::class,
+        nniicc\LanguageSwitcher\Providers\LanguageSwitcherProvider::class,
     ],
 ```
 Next, go to `app/Http/Kernel.php` and find the middleware array. You have two options:
@@ -43,7 +43,7 @@ Make sure you include the middleware at the end of the array, because it is reli
             .
             .
             .
-            \ied3vil\LanguageSwitcher\Middleware\LanguageSwitcherMiddleware::class,
+            \nniicc\LanguageSwitcher\Middleware\LanguageSwitcherMiddleware::class,
         ],
 ```
 
@@ -125,4 +125,4 @@ If you want to evidentiate the current selection language, you can use App::getL
 ##Bugs/Issues/Improvements
 Feel free to use github for issues and suggesting improvements.
 ##Additional Information
-You can find more information on regarding this package on my website, [www.ied3vil.com](http://www.ied3vil.com).
+You can find more information on regarding this package on my website, [www.nniicc.com](http://www.nniicc.com).
