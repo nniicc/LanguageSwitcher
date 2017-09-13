@@ -3,8 +3,8 @@ namespace ied3vil\LanguageSwitcher;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Session;
 
 class LanguageSwitcher
 {
@@ -38,13 +38,30 @@ class LanguageSwitcher
         if ($this->getStorageMethod() == 'cookie') {
             return cookie()->forever($this->getLanguageKey(), $language);
         }
-        if ( interface_exists( \Illuminate\Contracts\Session\Session::class ) && method_exists(\Illuminate\Contracts\Session\Session::class, 'put') ) {
+        if (interface_exists(\Illuminate\Contracts\Session\Session::class) && method_exists(\Illuminate\Contracts\Session\Session::class, 'put')) {
             Session::put($this->getLanguageKey(), $language);
         } else {
             Session::set($this->getLanguageKey(), $language);
         }
         $this->registerLanguage();
-        return cookie('dummy-cookie', FALSE, 1); //just for cleaner code in the controller
+        return cookie('dummy-cookie', false, 1); //just for cleaner code in the controller
+    }
+
+    /**
+     * Gets the back route with the correct language
+     * @param  string $language Language to be replaced
+     * @return string           string for back url
+     */
+    public function getBackRoute($language)
+    {
+        $backUrl = redirect()->back()->getTargetUrl();
+        $current = $this->getCurrentLanguage();
+        $start = strpos($backUrl, $current);
+        $count = strlen($current);
+        if ($backUrl[$start - 1] == '/' && (!isset($backUrl[$start + $count])) || $backUrl[$start + $count] == '/') {
+            $backUrl = substr_replace($backUrl, $language, $start, $count);
+        }
+        return $backUrl;
     }
 
     /**

@@ -1,13 +1,12 @@
 <?php
 
-
 namespace ied3vil\LanguageSwitcher;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use ied3vil\LanguageSwitcher\Facades\LanguageSwitcher as Switcher;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
 class LanguageSwitcherController extends BaseController
 {
@@ -22,11 +21,8 @@ class LanguageSwitcherController extends BaseController
     public function setLanguage($language)
     {
         if (Switcher::getRedirect() == 'route') {
-            $backUrl = redirect()->back()->getTargetUrl();
-            $backUrl = str_replace('/'.Switcher::getCurrentLanguage().'/', '/'.$language.'/', $backUrl);
-            return redirect($backUrl)->withCookie(Switcher::setLanguage($language));
+            return redirect(Switcher::getBackRoute($language))->withCookie(Switcher::setLanguage($language));
         }
         return back()->withCookie(Switcher::setLanguage($language));
     }
 }
-
